@@ -778,7 +778,13 @@ exports.push([module.i, "body{\r\n    background: #FBF7F1;\r\n}\r\n.head{\r\n   
 $(function () {
     $(".jsheart").on("click", heartChange);
     function heartChange() {
-        if ($(this).hasClass("glyphicon-heart-empty")) $(this).removeClass("glyphicon-heart-empty").addClass("glyphicon-heart");else if ($(this).hasClass("glyphicon-heart")) $(this).removeClass("glyphicon-heart").addClass("glyphicon-heart-empty");
+        if ($(this).hasClass("glyphicon-heart-empty")) {
+            $(this).removeClass("glyphicon-heart-empty").addClass("glyphicon-heart");
+            $(this).parents('.element-item').addClass('like');
+        } else if ($(this).hasClass("glyphicon-heart")) {
+            $(this).removeClass("glyphicon-heart").addClass("glyphicon-heart-empty");
+            $(this).parents('.element-item').removeClass('like');
+        }
     }
     $('.grid').imagesLoaded(function () {
         $(function () {
